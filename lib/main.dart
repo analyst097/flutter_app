@@ -37,20 +37,44 @@ class _MyAppState extends State<MyApp> {
       appBar: AppBar(
         title: const Text('My First App'),
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          QuestionWidget(
-            question: _questions[_questionIndex],
-            nextQuestion: nextQuestion,
-          )
-        ],
-      ),
+      body: _questionIndex < _questions.length
+          ? Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                QuestionWidget(
+                  question: _questions[_questionIndex],
+                  nextQuestion: nextQuestion,
+                )
+              ],
+            )
+          : Column(
+              children: [
+                Container(
+                  color: Colors.greenAccent,
+                  padding: EdgeInsets.all(10),
+                  width: double.infinity,
+                  margin: EdgeInsets.all(10),
+                  child: const Text(
+                    'Done',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black54,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                ElevatedButton(
+                    onPressed: () => setState(() {
+                          _questionIndex = 0;
+                        }),
+                    child: Text('Reset'))
+              ],
+            ),
     ));
   }
 
   void nextQuestion() {
-    (_questionIndex + 1) < _questions.length
+    _questionIndex < _questions.length
         ? setState(() {
             _questionIndex += 1;
           })
