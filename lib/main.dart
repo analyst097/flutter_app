@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:notemaker/widgets/chart.dart';
+import 'package:notemaker/widgets/expenses_list.dart';
 import 'widgets/home.dart';
 
 void main() {
@@ -16,7 +18,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Expenses'),
+        ),
+        body: Column(children: [
+          ChartWidget(),
+          ExpensesListWidget(),
+        ]),
+      ),
     );
   }
 }
