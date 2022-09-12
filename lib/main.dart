@@ -31,8 +31,16 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+            primarySwatch: Colors.green,
+            fontFamily: 'Quicksand',
+            textTheme: Theme.of(context).textTheme.copyWith(
+                titleSmall: TextStyle(
+                    fontFamily: 'OpenSans', fontWeight: FontWeight.w500)),
+            appBarTheme: AppBarTheme(
+                titleTextStyle: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800))),
         home: Scaffold(
           appBar: AppBar(
             title: Text('Expenses'),

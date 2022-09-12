@@ -14,48 +14,46 @@ class ExpenseWidget extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(5),
       child: Card(
-        child: InkWell(
-          splashColor: Colors.grey.withOpacity(.5),
-          onTap: () => print('tapped'),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Container(
-                          margin: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 10),
-                          child: Text(
-                            expense.title,
-                            style: TextStyle(
-                              fontSize: 16,
-                            ),
-                          )),
-                    ),
-                    Expanded(
-                      child: Container(
+        child: Container(
+          padding: EdgeInsets.all(5),
+          child: InkWell(
+            splashColor: Colors.grey.withOpacity(.5),
+            onTap: () => print('tapped'),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Text(expense.title,
+                              style: Theme.of(context).textTheme.titleMedium)),
+                      Container(
                           margin:
                               EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                           child: Text(
                             DateFormat.yMMMd()
                                 .add_jm()
                                 .format(expense.dateTime),
-                            style: TextStyle(fontSize: 14),
+                            style: Theme.of(context).textTheme.bodySmall,
                           )),
-                    )
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: Text(
-                  "\$${expense.amount}",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                ),
-              )
-            ],
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Text(
+                    "\$${expense.amount}",
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColorDark,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w500),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
