@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class ChartWidget extends StatefulWidget {
@@ -11,7 +13,7 @@ class _ChartWidgetState extends State<ChartWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
+      height: 300,
       padding: EdgeInsets.all(10),
       width: double.infinity,
       child: Text(
